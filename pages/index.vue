@@ -1,8 +1,8 @@
 <template>
     <div>
-        <NuxtParticles id="tsparticles" :options="options" @load="onLoad">
-        </NuxtParticles>
         <div class="container">
+            <NuxtParticles id="tsparticles" :options="options" @load="onLoad">
+            </NuxtParticles>
             <div class="text-container">
                 <div class="home-text">
                     <h1>Olá, me chamo Guilherme</h1>
@@ -15,12 +15,14 @@
                 </div>
             </div>
         </div>
+        <About />
     </div>
 </template>
 
 <script setup lang="ts">
 import { type Container } from 'tsparticles-engine';
 import { ref, onMounted } from 'vue';
+import About from '~/components/about/about.vue';
 
 const typeValue = ref('');
 const typeStatus = ref(false);
@@ -37,7 +39,7 @@ let charIndex = 0;
 
 const options = {
     fullScreen: {
-        enable: true,
+        enable: false,
         zIndex: -1,
     },
     background: {
@@ -145,8 +147,15 @@ onMounted(() => {
 </script>
 
 <style scoped>
+#tsparticles {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+}
+
 .container {
     height: 100vh;
+    width: 100%;
 }
 
 .text-container {
