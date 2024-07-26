@@ -1,8 +1,7 @@
 <template>
     <div>
         <div class="container">
-            <NuxtParticles id="tsparticles" :options="options" @load="onLoad">
-            </NuxtParticles>
+            <NuxtParticles id="tsparticles" :options="options" @load="onLoad" />
             <div class="text-container">
                 <div class="home-text">
                     <h1>Olá, me chamo Guilherme</h1>
@@ -20,20 +19,20 @@
 </template>
 
 <script setup lang="ts">
-import { type Container } from 'tsparticles-engine';
-import { ref, onMounted } from 'vue';
-import About from '~/components/about/about.vue';
+import { type Container } from "tsparticles-engine";
+import { ref, onMounted } from "vue";
+import About from "~/components/about/about.vue";
 
-const typeValue = ref('');
+const typeValue = ref("");
 const typeStatus = ref(false);
 const typeArray = [
-    'Sou um desenvolvedor web',
-    'Fique à vontade para olhar os meus trabalhos',
-    'Entre em contato e solicite um orçamento 😄',
+    "Sou um desenvolvedor web",
+    "Fique à vontade para olhar os meus trabalhos",
+    "Entre em contato e solicite um orçamento 😄",
 ];
-let typeSpeed = 60;
-let erasingSpeed = 25;
-let newTextDelay = 2000;
+const typeSpeed = 60;
+const erasingSpeed = 25;
+const newTextDelay = 2000;
 let typeArrayIndex = 0;
 let charIndex = 0;
 
@@ -44,16 +43,16 @@ const options = {
     },
     background: {
         image: "url('/imgs/Layout.jpg')",
-        size: 'cover',
-        repeat: 'no-repeat',
-        position: 'center',
+        size: "cover",
+        repeat: "no-repeat",
+        position: "center",
     },
     particles: {
         color: {
-            value: '#ff0000',
+            value: "#ff0000",
         },
         links: {
-            color: '#fff',
+            color: "#fff",
             enable: true,
             distance: 120,
             opacity: 1,
@@ -62,10 +61,10 @@ const options = {
         move: {
             enable: true,
             speed: 6,
-            direction: 'none',
+            direction: "none",
             random: true,
             straight: false,
-            out_mode: 'out',
+            out_mode: "out",
             bounce: false,
             attract: {
                 enable: false,
@@ -83,21 +82,21 @@ const options = {
         line_linked: {
             enable: true,
             distance: 191.92323070771698,
-            color: '#000000',
+            color: "#000000",
             opacity: 0.4,
             width: 1,
         },
     },
     interactivity: {
-        detectsOn: 'canvas',
+        detectsOn: "canvas",
         events: {
             onHover: {
                 enable: true,
-                mode: 'repulse',
+                mode: "repulse",
             },
             onClick: {
                 enable: true,
-                mode: 'push',
+                mode: "push",
             },
         },
         modes: {
@@ -170,7 +169,7 @@ onMounted(() => {
 
 .home-text h1,
 .home-text h2 {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 1.2rem;
     font-weight: normal;
     line-height: 30px;
