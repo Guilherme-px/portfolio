@@ -32,7 +32,8 @@
     background-color: #111111;
     color: #ffffff;
     padding: 20px;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     font-family: Arial, sans-serif;
 }
 
@@ -74,7 +75,7 @@ h2 {
 .text-section p {
     line-height: 25px;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .image-section {
@@ -121,8 +122,10 @@ h2 {
     }
 
     .text-section {
-        padding-right: 0;
+        padding-right: 0px;
         text-align: center;
+        margin-inline: 15px;
+        margin-bottom: 50px;
     }
 
     .image-section {
