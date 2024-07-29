@@ -25,16 +25,22 @@
         </div>
         <div class="tecs-section">
             <div class="tecs-description_title">
-                <span>Feramentas</span>
+                <span>Ferramentas</span>
             </div>
-            <div class="tecs-container_border">
-                <div class="tecs-container">
-                    <TechnologyIcon
-                        v-for="(tecsTool, index) in tecsTools"
-                        :key="index"
-                        :iconClass="tecsTool.iconClass"
-                        :name="tecsTool.name"
-                    />
+            <div class="tecs-tools-wrapper">
+                <div
+                    v-for="(chunk, chunkIndex) in chunkedTecsTools"
+                    :key="chunkIndex"
+                    class="tecs-container_border"
+                >
+                    <div class="tecs-container">
+                        <TechnologyIcon
+                            v-for="(tecsTool, index) in chunk"
+                            :key="index"
+                            :iconClass="tecsTool.iconClass"
+                            :name="tecsTool.name"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -42,15 +48,21 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import TechnologyIcon from "./technologyIcon.vue";
 
-const tecsLangs = [
+interface TecItem {
+    iconClass: string;
+    name: string;
+}
+
+const tecsLangs: TecItem[] = [
     { iconClass: "devicon-javascript-plain colored", name: "Javascript" },
     { iconClass: "devicon-typescript-plain colored", name: "Typescript" },
     { iconClass: "devicon-csharp-plain colored", name: "C#" },
 ];
 
-const tecsTools = [
+const tecsTools: TecItem[] = [
     { iconClass: "devicon-git-plain colored", name: "Git" },
     { iconClass: "devicon-vuejs-plain colored", name: "Vue.js" },
     { iconClass: "devicon-react-plain colored", name: "React" },
@@ -75,6 +87,33 @@ const tecsTools = [
     { iconClass: "devicon-npm-original-wordmark colored", name: "Npm" },
     { iconClass: "devicon-bun-plain colored", name: "Bun" },
 ];
+
+const isMobile = ref(false);
+
+const chunkArray = (array: TecItem[], size: number): TecItem[][] => {
+    const chunkedArr: TecItem[][] = [];
+    for (let i = 0; i < array.length; i += size) {
+        chunkedArr.push(array.slice(i, i + size));
+    }
+    return chunkedArr;
+};
+
+const chunkedTecsTools = computed(() => {
+    return isMobile.value ? chunkArray(tecsTools, 5) : [tecsTools];
+});
+
+const handleResize = () => {
+    isMobile.value = window.innerWidth <= 1150;
+};
+
+onMounted(() => {
+    window.addEventListener('resize', handleResize);
+    handleResize();
+});
+
+onUnmounted(() => {
+    window.removeEventListener('resize', handleResize);
+});
 </script>
 
 <style scoped>
@@ -128,7 +167,7 @@ h3 {
 .tecs-container {
     display: flex;
     gap: 50px;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     margin-inline: 50px;
 }
@@ -141,12 +180,24 @@ h3 {
     margin: 0 auto;
 }
 
+.tecs-tools-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 @media (max-width: 1150px) {
     .tecs-section {
         margin-inline: 50px;
     }
     .tecs-container {
         margin-inline: 20px;
+    }
+    .tecs-tools-wrapper {
+        flex-direction: column;
+    }
+    .tecs-container_border {
+        width: 100%;
     }
 }
 </style>
