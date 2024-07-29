@@ -16,6 +16,7 @@
         </div>
         <About />
         <Stacks />
+        <Projects />
     </div>
 </template>
 
@@ -23,6 +24,7 @@
 import { type Container } from "tsparticles-engine";
 import { ref, onMounted } from "vue";
 import About from "~/components/about/about.vue";
+import Projects from "~/components/projects/projects.vue";
 import Stacks from "~/components/stacks/stacks.vue";
 
 const typeValue = ref("");
