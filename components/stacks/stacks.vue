@@ -48,7 +48,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from "vue";
 import TechnologyIcon from "./technologyIcon.vue";
 
 interface TecItem {
@@ -107,12 +107,12 @@ const handleResize = () => {
 };
 
 onMounted(() => {
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
 });
 
 onUnmounted(() => {
-    window.removeEventListener('resize', handleResize);
+    window.removeEventListener("resize", handleResize);
 });
 </script>
 
@@ -192,6 +192,7 @@ h3 {
     }
     .tecs-container {
         margin-inline: 20px;
+        justify-content: space-evenly;
     }
     .tecs-tools-wrapper {
         flex-direction: column;
