@@ -237,7 +237,14 @@ h4 {
 }
 
 @media (max-width: 768px) {
+    .swiper {
+        max-width: 100%;
+        height: 306px;
+        padding: 0 40px;
+    }
+
     .content {
+        max-width: 100%;
         flex-direction: column-reverse;
         align-items: center;
         gap: 50px;
