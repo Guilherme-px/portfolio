@@ -10,4 +10,8 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+body {
+    overflow-x: hidden;
+}
 </style>

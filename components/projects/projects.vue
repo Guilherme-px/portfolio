@@ -1,5 +1,5 @@
 <template>
-    <div class="parallax-container">
+    <div>
         <div class="projects-page">
             <div class="projects-title">
                 <div class="projects-title_border">
@@ -126,14 +126,6 @@ const openModal = (project: Project) => {
 </script>
 
 <style scoped>
-.parallax-container {
-    background-image: url("/imgs/software-developer-bg.jpg");
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 .projects-page {
     color: #ffffff;
     padding: 20px;
@@ -181,6 +173,8 @@ h4 {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    width: 100%;
+    height: 100%;
 }
 
 .swiper-slide::after {
@@ -237,17 +231,21 @@ h4 {
 }
 
 @media (max-width: 768px) {
-    .swiper {
-        max-width: 100%;
-        height: 306px;
-        padding: 0 40px;
-    }
-
     .content {
         max-width: 100%;
         flex-direction: column-reverse;
         align-items: center;
         gap: 50px;
+    }
+
+    .swiper {
+        width: 100%;
+        max-width: 263px;
+        padding: 0 20px;
+    }
+
+    .swiper-slide {
+        width: calc(100% - 40px);
     }
 }
 </style>

@@ -29,7 +29,7 @@
 
 <style scoped>
 .about-page {
-    background-color: #111111;
+    background: rgba(1, 1, 1, 0.777);
     color: #ffffff;
     padding: 20px;
     min-height: 100vh;
@@ -53,7 +53,8 @@
 h2 {
     color: #fff;
     text-align: center;
-    padding: 5px 20px;
+    padding: 7px 24px;
+    font-size: 20px;
 }
 
 .content {
@@ -75,7 +76,7 @@ h2 {
 .text-section p {
     line-height: 25px;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .image-section {

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="parallax-container">
         <div class="container">
             <NuxtParticles id="tsparticles" :options="options" @load="onLoad" />
             <div class="text-container">
@@ -17,6 +17,7 @@
         <About />
         <Stacks />
         <Projects />
+        <Footer />
     </div>
 </template>
 
@@ -26,6 +27,7 @@ import { ref, onMounted } from "vue";
 import About from "~/components/about/about.vue";
 import Projects from "~/components/projects/projects.vue";
 import Stacks from "~/components/stacks/stacks.vue";
+import Footer from "~/components/footer/footer.vue";
 
 const typeValue = ref("");
 const typeStatus = ref(false);
@@ -150,6 +152,14 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.parallax-container {
+    background-image: url("/imgs/software-developer-bg.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #tsparticles {
     position: absolute;
     height: 100vh;
