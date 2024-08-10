@@ -130,14 +130,14 @@ const handleClose = () => {
     display: inline-block;
     margin: 0 10px;
     padding: 10px 20px;
-    background-color: #8b0000;
+    background-color: #ff0000;
     color: white;
     border-radius: 5px;
     text-decoration: none;
 }
 
 .button:hover {
-    background-color: #8b0000;
+    background-color: #ff0000;
     box-shadow: 0 0 15px 5px rgba(139, 0, 0, 0.8);
 }
 

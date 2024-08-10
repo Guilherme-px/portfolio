@@ -1,5 +1,5 @@
 <template>
-    <div class="about-page">
+    <div id="sobre" class="about-page">
         <div class="about-title">
             <div class="about-title_border">
                 <h2>Sobre</h2>
@@ -44,7 +44,7 @@
 }
 
 .about-title_border {
-    border: solid #8b0000 4px;
+    border: solid #ff0000 4px;
     border-radius: 25px;
     display: inline-block;
     box-shadow: 0 0 15px 5px rgba(139, 0, 0, 0.8);
@@ -100,7 +100,7 @@ h2 {
     left: 50%;
     width: 220px;
     height: 220px;
-    background-color: #8b0000;
+    background-color: #ff0000;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;

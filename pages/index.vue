@@ -1,5 +1,6 @@
 <template>
-    <div class="parallax-container">
+    <Header v-show="!showModal" />
+    <div id="inicio" class="parallax-container">
         <div class="container">
             <NuxtParticles id="tsparticles" :options="options" @load="onLoad" />
             <div class="text-container">
@@ -16,7 +17,7 @@
         </div>
         <About />
         <Stacks />
-        <Projects />
+        <Projects @showModal="showModal = $event" />
         <Footer />
     </div>
 </template>
@@ -27,9 +28,11 @@ import { ref, onMounted } from "vue";
 import About from "~/components/about/about.vue";
 import Projects from "~/components/projects/projects.vue";
 import Stacks from "~/components/stacks/stacks.vue";
+import Header from "~/components/header/header.vue";
 import Footer from "~/components/footer/footer.vue";
 
 const typeValue = ref("");
+const showModal = ref(false);
 const typeStatus = ref(false);
 const typeArray = [
     "Sou um desenvolvedor web",

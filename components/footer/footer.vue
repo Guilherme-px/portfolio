@@ -24,6 +24,13 @@
                     <i class="fab fa-linkedin"></i>
                 </a>
                 <a
+                    href="https://github.com/Guilherme-px"
+                    target="_blank"
+                    aria-label="Github"
+                >
+                    <i class="fab fa-github"></i>
+                </a>
+                <a
                     href="mailto:guilherme.s.goncalves@outlook.com"
                     aria-label="Email"
                 >
@@ -65,12 +72,12 @@
 }
 
 .social-links a:hover {
-    color: #8b0000;
+    color: #ff0000;
 }
 
 .divider {
     border: solid 1px;
-    border-color: #8b0000;
+    border-color: #ff0000;
     width: 100%;
     margin-block: 10px;
 }

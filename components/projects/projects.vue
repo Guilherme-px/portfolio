@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="projetos">
         <div class="projects-page">
             <div class="projects-title">
                 <div class="projects-title_border">
@@ -29,7 +29,7 @@
                     v-if="isModalOpen && selectedProject"
                     :project="selectedProject"
                     :isOpen="isModalOpen"
-                    @update:isOpen="isModalOpen = $event"
+                    @update:isOpen="handleModalClose"
                 />
             </div>
         </div>
@@ -54,6 +54,8 @@ interface Project {
     githubLink?: string;
     githubLinkAPI?: string;
 }
+
+const emit = defineEmits(["showModal"]);
 
 const modules = [EffectCards];
 const projects = ref<Project[]>([
@@ -122,6 +124,12 @@ const isModalOpen = ref(false);
 const openModal = (project: Project) => {
     selectedProject.value = project;
     isModalOpen.value = true;
+    emit("showModal", true);
+};
+
+const handleModalClose = (value: boolean) => {
+    isModalOpen.value = value;
+    emit("showModal", false);
 };
 </script>
 
@@ -142,7 +150,7 @@ const openModal = (project: Project) => {
 }
 
 .projects-title_border {
-    border: solid #8b0000 4px;
+    border: solid #ff0000 4px;
     border-radius: 25px;
     display: inline-block;
     box-shadow: 0 0 15px 5px rgba(139, 0, 0, 0.8);

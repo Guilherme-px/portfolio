@@ -1,5 +1,5 @@
 <template>
-    <div class="tecs-page">
+    <div id="tecnologias" class="tecs-page">
         <div class="tecs-title">
             <div class="tecs-title_border">
                 <h3>Tecnologias</h3>
