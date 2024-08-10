@@ -5,6 +5,7 @@
     "@nuxt/ui": "^2.18.4",
     "devicon": "^2.16.0",
     "nuxt": "^3.12.4",
+    "nuxt-app": "file:",
     "nuxt-particles": "^0.3.0",
     "swiper": "^11.1.8",
     "tsparticles-engine": "^2.12.0",

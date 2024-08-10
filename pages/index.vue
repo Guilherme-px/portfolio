@@ -1,8 +1,8 @@
 <template>
+    <NuxtParticles id="tsparticles" :options="options" />
     <Header v-show="!showModal" />
     <div id="inicio" class="parallax-container">
         <div class="container">
-            <NuxtParticles id="tsparticles" :options="options" @load="onLoad" />
             <div class="text-container">
                 <div class="home-text">
                     <h1>Olá, me chamo Guilherme</h1>
@@ -119,8 +119,7 @@ const options = {
 };
 
 const onLoad = (container: Container) => {
-    container.pause();
-    setTimeout(() => container.play(), 2000);
+    container.play();
 };
 
 const typeText = () => {
@@ -164,6 +163,11 @@ onMounted(() => {
 }
 
 #tsparticles {
+    background-image: url("/imgs/Layout.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: absolute;
     height: 100vh;
     width: 100%;
