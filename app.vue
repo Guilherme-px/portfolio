@@ -22,7 +22,7 @@ onMounted(() => {
     }, 500);
 });
 
-function onEnter(el: HTMLElement) {}
+function onEnter(el: Element) {}
 </script>
 
 <style>
