@@ -32,8 +32,12 @@ function onEnter(el: Element) {}
     box-sizing: border-box;
 }
 
+html,
 body {
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
 .spinner-container {

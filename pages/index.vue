@@ -160,6 +160,8 @@ onMounted(() => {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    width: 100%;
+    max-width: 100vw;
 }
 
 #tsparticles {

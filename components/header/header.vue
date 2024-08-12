@@ -121,6 +121,8 @@ nav ul li a:hover {
         flex-direction: row;
         justify-content: space-between;
         padding: 30px;
+        width: 100%;
+        max-width: 100%;
     }
 
     .menu-icon {
