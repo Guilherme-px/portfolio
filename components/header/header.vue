@@ -1,36 +1,7 @@
 <template>
-    <header :class="{ scrolled: (isScrolled && !isInicio) || menuOpen }">
+    <header :class="{ scrolled: (isScrolled && !isHome) || menuOpen }">
         <div class="logo">
-            <svg width="300" height="50" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="none" />
-                <text
-                    x="10"
-                    y="35"
-                    font-family="Arial, Helvetica, sans-serif"
-                    font-size="24"
-                    fill="#ff0000"
-                >
-                    &lt;
-                </text>
-                <text
-                    x="150"
-                    y="35"
-                    font-family="Arial, Helvetica, sans-serif"
-                    font-size="24"
-                    fill="#ff0000"
-                >
-                    /&gt;
-                </text>
-                <text
-                    x="30"
-                    y="35"
-                    font-family="Arial, Helvetica, sans-serif"
-                    font-size="24"
-                    fill="#ffffff"
-                >
-                    Guilherme
-                </text>
-            </svg>
+            <img src="~/public/imgs/logo.png" alt="" />
         </div>
         <div class="menu-icon" @click="toggleMenu">
             <i :class="menuOpen ? 'fas fa-x' : 'fas fa-bars'"></i>
@@ -89,7 +60,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -101,6 +72,10 @@ header {
 
 header.scrolled {
     background-color: #111111e6;
+}
+
+.logo img {
+    width: 50px;
 }
 
 nav ul {
@@ -145,7 +120,7 @@ nav ul li a:hover {
     header {
         flex-direction: row;
         justify-content: space-between;
-        padding: 10px;
+        padding: 30px;
     }
 
     .menu-icon {
@@ -185,10 +160,6 @@ nav ul li a:hover {
 }
 
 @media (max-width: 480px) {
-    .logo svg {
-        width: 200px;
-    }
-
     nav ul li a {
         font-size: 16px;
     }

@@ -3,13 +3,6 @@
         <div class="footer-content">
             <div class="social-links">
                 <a
-                    href="https://www.instagram.com/guilherme_jsx/"
-                    target="_blank"
-                    aria-label="Instagram"
-                >
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a
                     href="https://wa.me/44991719407"
                     target="_blank"
                     aria-label="WhatsApp"

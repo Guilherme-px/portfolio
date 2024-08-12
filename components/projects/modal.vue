@@ -138,7 +138,7 @@ const handleClose = () => {
 
 .button:hover {
     background-color: #ff0000;
-    box-shadow: 0 0 15px 5px rgba(139, 0, 0, 0.8);
+    box-shadow: 0 0 15px 5px #8b0000cc;
 }
 
 @media (max-width: 1117px) {

@@ -248,12 +248,38 @@ h4 {
 
     .swiper {
         width: 100%;
-        max-width: 263px;
+        max-width: 386px;
+        height: 564px;
         padding: 0 20px;
     }
 
     .swiper-slide {
         width: calc(100% - 40px);
+        background-position: unset;
+    }
+
+    .swiper-slide:nth-child(1n) {
+        background-image: url("/imgs/hype-mobile.png");
+    }
+
+    .swiper-slide:nth-child(2n) {
+        background-image: url("/imgs/hype-landing-mobile.png");
+    }
+
+    .swiper-slide:nth-child(3n) {
+        background-image: url("/imgs/moderna-mobile.png");
+    }
+
+    .swiper-slide:nth-child(4n) {
+        background-image: url("/imgs/convert-mobile.png");
+    }
+
+    .swiper-slide:nth-child(5n) {
+        background-image: url("/imgs/coffee-mobile.png");
+    }
+
+    .swiper-slide:nth-child(6n) {
+        background-image: url("/imgs/burguer-mobile.jpg");
     }
 }
 </style>
