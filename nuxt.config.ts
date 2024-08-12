@@ -1,6 +1,9 @@
 export default defineNuxtConfig({
-    devtools: { enabled: true },
-    modules: ["nuxt-particles"],
-    css: ["devicon/devicon.min.css"],
+    devtools: { enabled: false },
+    modules: ["nuxt-particles", "@nuxt/ui"],
+    css: [
+        "devicon/devicon.min.css",
+        "@fortawesome/fontawesome-free/css/all.css",
+    ],
     compatibilityDate: "2024-07-27",
 });

@@ -1,5 +1,5 @@
 <template>
-    <div class="about-page">
+    <div id="sobre" class="about-page">
         <div class="about-title">
             <div class="about-title_border">
                 <h2>Sobre</h2>
@@ -29,7 +29,7 @@
 
 <style scoped>
 .about-page {
-    background-color: #111111;
+    background: rgba(1, 1, 1, 0.777);
     color: #ffffff;
     padding: 20px;
     min-height: 100vh;
@@ -44,7 +44,7 @@
 }
 
 .about-title_border {
-    border: solid #8b0000 4px;
+    border: solid #ff0000 4px;
     border-radius: 25px;
     display: inline-block;
     box-shadow: 0 0 15px 5px rgba(139, 0, 0, 0.8);
@@ -53,7 +53,8 @@
 h2 {
     color: #fff;
     text-align: center;
-    padding: 5px 20px;
+    padding: 7px 24px;
+    font-size: 20px;
 }
 
 .content {
@@ -75,7 +76,7 @@ h2 {
 .text-section p {
     line-height: 25px;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .image-section {
@@ -99,7 +100,7 @@ h2 {
     left: 50%;
     width: 220px;
     height: 220px;
-    background-color: #8b0000;
+    background-color: #ff0000;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;

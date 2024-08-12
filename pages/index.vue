@@ -1,7 +1,8 @@
 <template>
-    <div>
+    <NuxtParticles id="tsparticles" :options="options" />
+    <Header v-show="!showModal" />
+    <div id="inicio" class="parallax-container">
         <div class="container">
-            <NuxtParticles id="tsparticles" :options="options" @load="onLoad" />
             <div class="text-container">
                 <div class="home-text">
                     <h1>Olá, me chamo Guilherme</h1>
@@ -16,7 +17,8 @@
         </div>
         <About />
         <Stacks />
-        <Projects />
+        <Projects @showModal="showModal = $event" />
+        <Footer />
     </div>
 </template>
 
@@ -26,8 +28,11 @@ import { ref, onMounted } from "vue";
 import About from "~/components/about/about.vue";
 import Projects from "~/components/projects/projects.vue";
 import Stacks from "~/components/stacks/stacks.vue";
+import Header from "~/components/header/header.vue";
+import Footer from "~/components/footer/footer.vue";
 
 const typeValue = ref("");
+const showModal = ref(false);
 const typeStatus = ref(false);
 const typeArray = [
     "Sou um desenvolvedor web",
@@ -114,8 +119,7 @@ const options = {
 };
 
 const onLoad = (container: Container) => {
-    container.pause();
-    setTimeout(() => container.play(), 2000);
+    container.play();
 };
 
 const typeText = () => {
@@ -150,7 +154,20 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.parallax-container {
+    background-image: url("/imgs/software-developer-bg.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #tsparticles {
+    background-image: url("/imgs/Layout.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: absolute;
     height: 100vh;
     width: 100%;

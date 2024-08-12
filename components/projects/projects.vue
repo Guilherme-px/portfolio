@@ -1,96 +1,146 @@
 <template>
-    <div class="projects-page">
-        <div class="projects-title">
-            <div class="projects-title_border">
-                <h4>Projetos</h4>
+    <div id="projetos">
+        <div class="projects-page">
+            <div class="projects-title">
+                <div class="projects-title_border">
+                    <h4>Projetos</h4>
+                </div>
             </div>
-        </div>
-        <div class="content">
-            <swiper
-                :effect="'cards'"
-                :grabCursor="true"
-                :modules="modules"
-                class="mySwiper"
-            >
-                <swiper-slide>
-                    <div class="card">
-                        <div class="card-text">
-                            <span>Titulo</span>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur
-                                adipisicing elit. Totam maxime eveniet nam magni
-                                tempora sed voluptate quam blanditiis officiis
-                                consectetur, sapiente, perspiciatis corrupti
-                                soluta maiores quos, sunt id ipsum ullam.
-                            </p>
+            <div class="content">
+                <swiper
+                    :effect="'cards'"
+                    :grabCursor="true"
+                    :modules="modules"
+                    class="mySwiper"
+                >
+                    <swiper-slide
+                        v-for="(project, index) in projects"
+                        :key="index"
+                        @click="openModal(project)"
+                    >
+                        <div class="card">
+                            <div class="card-text">
+                                <span>{{ project.title }}</span>
+                            </div>
                         </div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="card">
-                        <div class="card-text">
-                            <span>Titulo</span>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur
-                                adipisicing elit. Totam maxime eveniet nam magni
-                                tempora sed voluptate quam blanditiis officiis
-                                consectetur, sapiente, perspiciatis corrupti
-                                soluta maiores quos, sunt id ipsum ullam.
-                            </p>
-                        </div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="card">
-                        <div class="card-text">
-                            <span>Titulo</span>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur
-                                adipisicing elit. Totam maxime eveniet nam magni
-                                tempora sed voluptate quam blanditiis officiis
-                                consectetur, sapiente, perspiciatis corrupti
-                                soluta maiores quos, sunt id ipsum ullam.
-                            </p>
-                        </div>
-                    </div>
-                </swiper-slide>
-            </swiper>
+                    </swiper-slide>
+                </swiper>
+                <ProjectModal
+                    v-if="isModalOpen && selectedProject"
+                    :project="selectedProject"
+                    :isOpen="isModalOpen"
+                    @update:isOpen="handleModalClose"
+                />
+            </div>
         </div>
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
-
-// Import Swiper styles
 import "swiper/css";
-
 import "swiper/css/effect-cards";
-
-// import required modules
 import { EffectCards } from "swiper/modules";
+import ProjectModal from "./modal.vue";
 
-export default {
-    components: {
-        Swiper,
-        SwiperSlide,
+interface Project {
+    id: number;
+    title: string;
+    name: string;
+    description: string;
+    image: string;
+    siteLink?: string;
+    githubLink?: string;
+    githubLinkAPI?: string;
+}
+
+const emit = defineEmits(["showModal"]);
+
+const modules = [EffectCards];
+const projects = ref<Project[]>([
+    {
+        id: 1,
+        title: "Sistema de agendamentos",
+        name: "Hype agendamentos",
+        description:
+            "Este é um projeto para gerenciar agendamentos e a parte administrativa para estabelecimentos do ramo de estica, o projeto esta sendo desenvolvido por mim e um sócio onde fui responsável por desenvolver toda a parte da API e gerenciar a infraestrutura do projeto feito em node com arquitetura serverless, hoje o projeto está sendo testado por alguns clientes em potencial enquanto desenvolvemos o b2c que será a plataforma para os usuários fazerem agendamento online nos estabelecimentos.",
+        image: "/imgs/hypeLayout.png",
+        siteLink: "https://www.hypeagendamento.com.br",
     },
-    setup() {
-        return {
-            modules: [EffectCards],
-        };
+    {
+        id: 2,
+        title: "Landing page",
+        name: "Hype landing page",
+        description:
+            "Landing page para meu sistema de agendamento de horários para o ramo de estética, este projeto foi feito em nuxt 14, a pagina disponibiliza alguma informações sobre o sistema e as necessidades que ele cobre e como ele pode facilitar e agilizar a rotina dos donos de salões de beleza, barbearias, clinicas de estética e etc..., além de informações de contato com suporte da empresa e planos para poder assinar e ter acesso ao nosso sistema. (Site ainda não disponibilizado para acesso publico)",
+        image: "/imgs/hypeLanding2.png",
+        // siteLink: "https://www.hypeagendamento.com.br",
     },
+    {
+        id: 3,
+        title: "Venda de ingressos",
+        name: "Moderna pass",
+        description:
+            "Um projeto no qual participei contratado por como freelancer onde fiz algumas implementações e refatorações, como implementação de envio de email de boas vindas, redefinição de senha, disparo de emails para lembrete próximo ao dia de inicio do evento com cron e aws sqs, refatoração para migrar do mailchimp para aws ses, refatoração na infraestrutura do banco para implementar logica de lote de casadinha de ingressos e a visualização da área de tickets do usuário.",
+        image: "/imgs/modernaPass.png",
+        siteLink: "https://modernapass.com.br/",
+    },
+    {
+        id: 4,
+        title: "Conversor de texto",
+        name: "Text Alchemy",
+        description:
+            "Projeto pessoal de um site de utilidades para formatação de texto e outras funcionalidades, o projeto foi feito com Vue 3 e testado com cypress e vitest que são sempre rodados a cada deploy automaticamente no github actions.",
+        image: "/imgs/textAlchemy.png",
+        siteLink: "https://vue-text-convert.vercel.app/",
+        githubLink: "https://github.com/Guilherme-px/vue-text-convert",
+    },
+    {
+        id: 5,
+        title: "Pagina para cafeteria",
+        name: "Cafeteria",
+        description:
+            "Um projeto pessoal que na época fiz para praticar meus conhecimentos em vuejs 2, é uma simples landing page para divulgar uma cafeteria e seus produtos.",
+        image: "/imgs/coffeePage2.png",
+        siteLink: "https://guilherme-px.github.io/coffee-page/",
+        githubLink: "https://github.com/Guilherme-px/Landing-page-vue-vuetify",
+    },
+    {
+        id: 6,
+        title: "Pagina para hamburgueria",
+        name: "Burguer page",
+        description:
+            "Um projeto pessoal que na época fiz para praticar meus conhecimentos em vuejs 3, é uma simples landing page para divulgar uma hamburgueria com informações sobre a localização e produtos com preços",
+        image: "/imgs/burguerMenu.png",
+        siteLink: "https://guilherme-px.github.io/burg/",
+        githubLink: "https://github.com/Guilherme-px/burguer-page",
+    },
+]);
+
+const selectedProject = ref<Project | null>(null);
+const isModalOpen = ref(false);
+
+const openModal = (project: Project) => {
+    selectedProject.value = project;
+    isModalOpen.value = true;
+    emit("showModal", true);
+};
+
+const handleModalClose = (value: boolean) => {
+    isModalOpen.value = value;
+    emit("showModal", false);
 };
 </script>
 
 <style scoped>
 .projects-page {
-    background-color: #111111;
     color: #ffffff;
     padding: 20px;
     min-height: 100vh;
     height: 100%;
     font-family: Arial, sans-serif;
+    background: rgba(1, 1, 1, 0.6);
 }
 
 .projects-title {
@@ -100,7 +150,7 @@ export default {
 }
 
 .projects-title_border {
-    border: solid #8b0000 4px;
+    border: solid #ff0000 4px;
     border-radius: 25px;
     display: inline-block;
     box-shadow: 0 0 15px 5px rgba(139, 0, 0, 0.8);
@@ -117,62 +167,57 @@ h4 {
 }
 
 .swiper {
-    width: 340px;
-    height: 460px;
+    width: 463px;
+    height: 306px;
 }
 
 .swiper-slide {
+    box-shadow: 0 0 10px 5px rgba(139, 0, 0, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 18px;
     color: #fff;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 18px;
 }
 
 .swiper-slide:nth-child(1n) {
-    background-image: url("/imgs/Layout.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image: url("/imgs/hypeDashboard.png");
 }
 
 .swiper-slide:nth-child(2n) {
-    background-image: url("/imgs/Layout.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image: url("/imgs/hypeLanding.png");
 }
 
 .swiper-slide:nth-child(3n) {
-    background-image: url("/imgs/Layout.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image: url("/imgs/modernaPass.png");
 }
 
 .swiper-slide:nth-child(4n) {
-    background-color: rgb(211, 122, 7);
+    background-image: url("/imgs/textAlchemy.png");
 }
 
 .swiper-slide:nth-child(5n) {
-    background-color: rgb(118, 163, 12);
+    background-image: url("/imgs/coffeePage.png");
 }
 
 .swiper-slide:nth-child(6n) {
-    background-color: rgb(180, 10, 47);
-}
-
-.swiper-slide:nth-child(7n) {
-    background-color: rgb(35, 99, 19);
-}
-
-.swiper-slide:nth-child(8n) {
-    background-color: rgb(0, 68, 255);
-}
-
-.swiper-slide:nth-child(9n) {
-    background-color: rgb(218, 12, 218);
-}
-
-.swiper-slide:nth-child(10n) {
-    background-color: rgb(54, 94, 77);
+    background-image: url("/imgs/burguerPage.png");
 }
 
 .card {
@@ -181,33 +226,60 @@ h4 {
     justify-content: center;
     border-radius: 18px;
     font-size: 22px;
-    width: 340px;
-    height: 460px;
+    width: 100%;
+    height: 100%;
 }
 
 .card-text {
     display: flex;
-    flex-direction: column;
     color: #fff;
     text-align: center;
-    width: 340px;
-    height: 460px;
-    padding: 20px;
-}
-
-.card-text span {
-    margin-block: 20px;
-}
-
-.card-text p {
-    font-size: 15px;
+    margin: 0 auto;
+    z-index: 1;
 }
 
 @media (max-width: 768px) {
     .content {
+        max-width: 100%;
         flex-direction: column-reverse;
         align-items: center;
         gap: 50px;
+    }
+
+    .swiper {
+        width: 100%;
+        max-width: 386px;
+        height: 564px;
+        padding: 0 20px;
+    }
+
+    .swiper-slide {
+        width: calc(100% - 40px);
+        background-position: unset;
+    }
+
+    .swiper-slide:nth-child(1n) {
+        background-image: url("/imgs/hype-mobile.png");
+    }
+
+    .swiper-slide:nth-child(2n) {
+        background-image: url("/imgs/hype-landing-mobile.png");
+    }
+
+    .swiper-slide:nth-child(3n) {
+        background-image: url("/imgs/moderna-mobile.png");
+    }
+
+    .swiper-slide:nth-child(4n) {
+        background-image: url("/imgs/convert-mobile.png");
+    }
+
+    .swiper-slide:nth-child(5n) {
+        background-image: url("/imgs/coffee-mobile.png");
+    }
+
+    .swiper-slide:nth-child(6n) {
+        background-image: url("/imgs/burguer-mobile.jpg");
     }
 }
 </style>
