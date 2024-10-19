@@ -6,4 +6,5 @@ export default defineNuxtConfig({
         "@fortawesome/fontawesome-free/css/all.css",
     ],
     compatibilityDate: "2024-07-27",
+    ssr: false,
 });

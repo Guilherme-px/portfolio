@@ -23,8 +23,8 @@
 </template>
 
 <script setup lang="ts">
-import { type Container } from "tsparticles-engine";
-import { ref, onMounted } from "vue";
+import type { RecursivePartial, IOptions } from "@tsparticles/engine";
+import { ref } from "vue";
 import About from "~/components/about/about.vue";
 import Projects from "~/components/projects/projects.vue";
 import Stacks from "~/components/stacks/stacks.vue";
@@ -45,7 +45,7 @@ const newTextDelay = 2000;
 let typeArrayIndex = 0;
 let charIndex = 0;
 
-const options = {
+const options: RecursivePartial<IOptions> = {
     fullScreen: {
         enable: false,
         zIndex: -1,
@@ -116,11 +116,7 @@ const options = {
         },
     },
     retina_detect: true,
-};
-
-const onLoad = (container: Container) => {
-    container.play();
-};
+} as RecursivePartial<IOptions>;
 
 const typeText = () => {
     if (charIndex < typeArray[typeArrayIndex].length) {
@@ -147,10 +143,6 @@ const eraseText = () => {
         setTimeout(typeText, typeSpeed + 1000);
     }
 };
-
-onMounted(() => {
-    setTimeout(typeText, newTextDelay + 200);
-});
 </script>
 
 <style scoped>

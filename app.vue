@@ -1,13 +1,6 @@
 <template>
-    <transition name="fade" @after-enter="onEnter">
-        <div v-if="isLoading" class="spinner-container">
-            <div class="spinner"></div>
-        </div>
-    </transition>
     <transition name="fade">
-        <div v-if="!isLoading" class="content">
-            <NuxtPage />
-        </div>
+        <NuxtPage />
     </transition>
 </template>
 
