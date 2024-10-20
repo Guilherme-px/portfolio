@@ -66,7 +66,7 @@ const projects = ref<Project[]>([
         description:
             "Este é um projeto para gerenciar agendamentos e a parte administrativa para estabelecimentos do ramo de estica, o projeto esta sendo desenvolvido por mim e um sócio onde fui responsável por desenvolver toda a parte da API e gerenciar a infraestrutura do projeto feito em node com arquitetura serverless, hoje o projeto está sendo testado por alguns clientes em potencial enquanto desenvolvemos o b2c que será a plataforma para os usuários fazerem agendamento online nos estabelecimentos.",
         image: "/imgs/hypeLayout.png",
-        siteLink: "https:/admin.hypeagendamento.com.br",
+        siteLink: "https://admin.hypeagendamento.com.br",
     },
     {
         id: 2,
