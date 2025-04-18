@@ -143,6 +143,10 @@ const eraseText = () => {
         setTimeout(typeText, typeSpeed + 1000);
     }
 };
+
+onMounted(() => {
+  typeText();
+});
 </script>
 
 <style scoped>
