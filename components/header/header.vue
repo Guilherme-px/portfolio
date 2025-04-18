@@ -14,6 +14,7 @@
                     <a href="#tecnologias" @click="closeMenu">Tecnologias</a>
                 </li>
                 <li><a href="#projetos" @click="closeMenu">Projetos</a></li>
+                <li><a href="#footer" @click="closeMenu">Contatos</a></li>
             </ul>
         </nav>
     </header>

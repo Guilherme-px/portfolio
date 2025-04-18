@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer">
+    <footer id="footer">
         <div class="footer-content">
             <div class="social-links">
                 <a
@@ -40,7 +40,7 @@
 </template>
 
 <style scoped>
-.footer {
+#footer {
     padding: 20px;
     background-color: #111111;
     color: #fff;
