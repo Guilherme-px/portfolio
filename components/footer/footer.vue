@@ -3,7 +3,7 @@
         <div class="footer-content">
             <div class="social-links">
                 <a
-                    href="https://wa.me/44991719407"
+                    href="https://wa.me/44991774214"
                     target="_blank"
                     aria-label="WhatsApp"
                 >
