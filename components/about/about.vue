@@ -9,13 +9,13 @@
             <div class="text-section">
                 <p>
                     Me formei em 2020 em Análise e Desenvolvimento de Sistemas
-                    pela Unipar. Desde então, venho trabalhando como fullstack e
-                    me especializando principalmente na stack de JavaScript.
-                    Hoje trabalho prestando serviços sob demanda como freelancer
-                    e desenvolvendo e administrando um sistema próprio,
-                    inicialmente desenvolvido por mim e meu sócio para
-                    agendamento de horários e gerenciamento de estabelecimentos
-                    de estética.
+                    pela Unipar. Desde então, venho trabalhando como full stack
+                    e me especializando principalmente na stack de JavaScript.
+                    Hoje, trabalho prestando serviços sob demanda como
+                    freelancer e desenvolvendo um sistema próprio para gestão de
+                    estabelecimentos de estética. Esse sistema é composto por um
+                    SaaS para gestão financeira e agenda dos estabelecimentos,
+                    além de um marketplace para agendamento online.
                 </p>
             </div>
             <div class="image-section">
