@@ -61,31 +61,40 @@ const modules = [EffectCards];
 const projects = ref<Project[]>([
     {
         id: 1,
-        title: "Sistema de agendamentos",
-        name: "Hype agendamentos",
+        title: "Hype - Landing page",
+        name: "Hype landing page",
         description:
-            "Este é um projeto para gerenciar agendamentos e a parte administrativa para estabelecimentos do ramo de estica, o projeto esta sendo desenvolvido por mim e um sócio onde fui responsável por desenvolver toda a parte da API e gerenciar a infraestrutura do projeto feito em node com arquitetura serverless, hoje o projeto está sendo testado por alguns clientes em potencial enquanto desenvolvemos o b2c que será a plataforma para os usuários fazerem agendamento online nos estabelecimentos.",
-        image: "/imgs/hypeLayout.png",
-        siteLink: "https://admin.hypeagendamento.com.br",
+            "Landing page para meu sistema de agendamento de horários para o ramo de estética, este projeto foi feito em next 14 e usa Stripe para pagamento das assinaturas dos planos, a pagina disponibiliza alguma informações sobre o sistema e as necessidades que ele cobre e como ele pode facilitar e agilizar a rotina dos donos de salões de beleza, barbearias, clinicas de estética e etc..., além de informações de contato com suporte da empresa e planos para poder assinar e ter acesso ao sistema.",
+        image: "/imgs/hypeLanding2.png",
+        siteLink: "https://www.hypeagendamento.com",
     },
     {
         id: 2,
-        title: "Landing page",
-        name: "Hype landing page",
+        title: "Hype - Sistema de agendamentos",
+        name: "Administrativo hype agendamentos",
         description:
-            "Landing page para meu sistema de agendamento de horários para o ramo de estética, este projeto foi feito em nuxt 14, a pagina disponibiliza alguma informações sobre o sistema e as necessidades que ele cobre e como ele pode facilitar e agilizar a rotina dos donos de salões de beleza, barbearias, clinicas de estética e etc..., além de informações de contato com suporte da empresa e planos para poder assinar e ter acesso ao nosso sistema. (Site ainda não disponibilizado para acesso publico)",
-        image: "/imgs/hypeLanding2.png",
-        // siteLink: "https://www.hypeagendamento.com.br",
+            "Este é um projeto para gerenciar agendamentos e a parte administrativa de estabelecimentos do ramo de estética. O projeto foi desenvolvido em React e está rodando na AWS Amplify. Nele, os usuários podem realizar o cadastro de profissionais e clientes, fazer a gestão da agenda de horários, cadastrar serviços e gerenciar o fluxo de caixa.",
+        image: "/imgs/hypeLayout.png",
+        siteLink: "https://admin.hypeagendamento.com",
     },
     {
         id: 3,
-        title: "Venda de ingressos",
-        name: "Moderna pass",
+        title: "Hype - Marketplace ",
+        name: "Marketplace hype agendamentos",
         description:
-            "Um projeto no qual participei contratado por como freelancer onde fiz algumas implementações e refatorações, como implementação de envio de email de boas vindas, redefinição de senha, disparo de emails para lembrete próximo ao dia de inicio do evento com cron e aws sqs, refatoração para migrar do mailchimp para aws ses, refatoração na infraestrutura do banco para implementar logica de lote de casadinha de ingressos e a visualização da área de tickets do usuário.",
-        image: "/imgs/modernaPass.png",
-        siteLink: "https://modernapass.com.br/",
+            "Este é o marketplace que desenvolvi em Nuxt 3 para que os clientes possam fazer agendamentos com os salões da sua região. O sistema utiliza a API do Google Maps para buscar as informações de endereço e filtrar os estabelecimentos próximos à localização do usuário, além de permitir que os usuários realizem o pagamento online dos agendamentos utilizando o Stripe.",
+        image: "/imgs/b2c.png",
+        siteLink: "https://app.hypeagendamento.com",
     },
+    // {
+    //     id: 3,
+    //     title: "Venda de ingressos",
+    //     name: "Moderna pass",
+    //     description:
+    //         "Um projeto no qual participei contratado por como freelancer onde fiz algumas implementações e refatorações, como implementação de envio de email de boas vindas, redefinição de senha, disparo de emails para lembrete próximo ao dia de inicio do evento com cron e aws sqs, refatoração para migrar do mailchimp para aws ses, refatoração na infraestrutura do banco para implementar logica de lote de casadinha de ingressos e a visualização da área de tickets do usuário.",
+    //     image: "/imgs/modernaPass.png",
+    //     siteLink: "https://modernapass.com.br/",
+    // },
     {
         id: 4,
         title: "Conversor de texto",
@@ -197,15 +206,15 @@ h4 {
 }
 
 .swiper-slide:nth-child(1n) {
-    background-image: url("/imgs/hypeDashboard.png");
-}
-
-.swiper-slide:nth-child(2n) {
     background-image: url("/imgs/hypeLanding.png");
 }
 
+.swiper-slide:nth-child(2n) {
+    background-image: url("/imgs/hypeDashboard.png");
+}
+
 .swiper-slide:nth-child(3n) {
-    background-image: url("/imgs/modernaPass.png");
+    background-image: url("/imgs/b2c-home.png");
 }
 
 .swiper-slide:nth-child(4n) {
@@ -259,11 +268,11 @@ h4 {
     }
 
     .swiper-slide:nth-child(1n) {
-        background-image: url("/imgs/hype-mobile.png");
+        background-image: url("/imgs/hype-landing-mobile.png");
     }
 
     .swiper-slide:nth-child(2n) {
-        background-image: url("/imgs/hype-landing-mobile.png");
+        background-image: url("/imgs/hype-mobile.png");
     }
 
     .swiper-slide:nth-child(3n) {

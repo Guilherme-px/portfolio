@@ -12,7 +12,8 @@
                     pela Unipar. Desde então, venho trabalhando como full stack
                     e me especializando principalmente na stack de JavaScript.
                     Hoje, trabalho prestando serviços sob demanda como
-                    freelancer e desenvolvendo um sistema próprio para gestão de
+                    freelancer e desenvolvendo um sistema próprio que está sendo
+                    desenvolvido desde o fim de 2023 para gestão de
                     estabelecimentos de estética. Esse sistema é composto por um
                     SaaS para gestão financeira e agenda dos estabelecimentos,
                     além de um marketplace para agendamento online.
