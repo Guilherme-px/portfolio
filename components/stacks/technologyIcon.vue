@@ -1,6 +1,7 @@
 <template>
     <div class="tech-icon">
-        <i :class="iconClass"></i>
+        <i :class="iconClass" v-if="iconClass"></i>
+        <img :src="iconImg" class="iconImg" v-if="iconImg" />
         <p>{{ name }}</p>
     </div>
 </template>
@@ -9,6 +10,7 @@
 const props = defineProps({
     iconClass: String,
     name: String,
+    iconImg: String,
 });
 </script>
 
@@ -24,5 +26,10 @@ const props = defineProps({
 .tech-icon p {
     margin-top: 0.5rem;
     font-size: 1rem;
+}
+
+.iconImg {
+    width: 32px;
+    height: 32px;
 }
 </style>

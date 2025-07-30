@@ -18,6 +18,7 @@
                         v-for="(tecsLang, index) in tecsLangs"
                         :key="index"
                         :iconClass="tecsLang.iconClass"
+                        :iconImg="tecsLang.iconImg"
                         :name="tecsLang.name"
                     />
                 </div>
@@ -38,6 +39,7 @@
                             v-for="(tecsTool, index) in chunk"
                             :key="index"
                             :iconClass="tecsTool.iconClass"
+                            :iconImg="tecsTool.iconImg"
                             :name="tecsTool.name"
                         />
                     </div>
@@ -52,7 +54,8 @@ import { ref, computed, onMounted, onUnmounted } from "vue";
 import TechnologyIcon from "./technologyIcon.vue";
 
 interface TecItem {
-    iconClass: string;
+    iconClass?: string;
+    iconImg?: string;
     name: string;
 }
 
@@ -77,12 +80,14 @@ const tecsTools: TecItem[] = [
     { iconClass: "devicon-mysql-original colored", name: "Mysql" },
     { iconClass: "devicon-mongodb-plain colored", name: "Mongodb" },
     { iconClass: "devicon-nodejs-plain-wordmark colored", name: "Nodejs" },
+    { iconImg: "/icons/serverless-icon.svg", name: "Serverless" },
     {
         iconClass: "devicon-amazonwebservices-plain-wordmark colored",
         name: "AWS",
     },
     { iconClass: "devicon-jest-plain colored", name: "Jest" },
     { iconClass: "devicon-vitest-plain colored", name: "Vitest" },
+    { iconClass: "devicon-cypressio-plain colored", name: "Cypress" },
     { iconClass: "devicon-docker-plain colored", name: "Docker" },
     { iconClass: "devicon-npm-original-wordmark colored", name: "Npm" },
     { iconClass: "devicon-bun-plain colored", name: "Bun" },
