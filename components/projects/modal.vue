@@ -23,7 +23,7 @@
                 </div>
             </template>
             <div class="modal-content">
-                <div>
+                <div v-if="project.image && !project.video">
                     <img
                         :src="project.image"
                         alt="Project Image"
@@ -57,6 +57,12 @@
                             >GitHub (API)</a
                         >
                     </div>
+                    <div class="modal-video">
+                        <VideoPlayer
+                            v-if="project.video"
+                            :src="project.video"
+                        />
+                    </div>
                 </div>
             </div>
         </UCard>
@@ -65,12 +71,14 @@
 
 <script setup lang="ts">
 import { ref, watch } from "vue";
+import VideoPlayer from "./videoPlayer.vue";
 
 const props = defineProps<{
     project: {
         name: string;
         description: string;
-        image: string;
+        image?: string;
+        video?: string;
         siteLink?: string;
         githubLink?: string;
         githubLinkAPI?: string;
@@ -108,6 +116,11 @@ const handleClose = () => {
 .modal-image {
     width: 1520px;
     border-radius: 8px;
+}
+
+.modal-video {
+    display: flex;
+    justify-content: center;
 }
 
 .modal-text-buttons-container {

@@ -49,7 +49,8 @@ interface Project {
     title: string;
     name: string;
     description: string;
-    image: string;
+    image?: string;
+    video?: string;
     siteLink?: string;
     githubLink?: string;
     githubLinkAPI?: string;
@@ -65,38 +66,10 @@ const projects = ref<Project[]>([
         name: "Hype landing page",
         description:
             "Landing page para meu sistema de agendamento de horários para o ramo de estética, este projeto foi feito em next 14 e usa Stripe para pagamento das assinaturas dos planos, a pagina disponibiliza alguma informações sobre o sistema e as necessidades que ele cobre e como ele pode facilitar e agilizar a rotina dos donos de salões de beleza, barbearias, clinicas de estética e etc..., além de informações de contato com suporte da empresa e planos para poder assinar e ter acesso ao sistema.",
-        image: "/imgs/hypeLanding2.png",
-        siteLink: "https://www.hypeagendamento.com",
+        video: "https://youtu.be/hZUWwN35TLY",
     },
     {
         id: 2,
-        title: "Hype - Sistema de agendamentos",
-        name: "Administrativo hype agendamentos",
-        description:
-            "Este é um projeto para gerenciar agendamentos e a parte administrativa de estabelecimentos do ramo de estética. O projeto foi desenvolvido em React e está rodando na AWS Amplify. Nele, os usuários podem realizar o cadastro de profissionais e clientes, fazer a gestão da agenda de horários, cadastrar serviços e gerenciar o fluxo de caixa.",
-        image: "/imgs/hypeLayout.png",
-        siteLink: "https://admin.hypeagendamento.com",
-    },
-    {
-        id: 3,
-        title: "Hype - Marketplace ",
-        name: "Marketplace hype agendamentos",
-        description:
-            "Este é o marketplace que desenvolvi em Nuxt 3 para que os clientes possam fazer agendamentos com os salões da sua região. O sistema utiliza a API do Google Maps para buscar as informações de endereço e filtrar os estabelecimentos próximos à localização do usuário, além de permitir que os usuários realizem o pagamento online dos agendamentos utilizando o Stripe.",
-        image: "/imgs/b2c.png",
-        siteLink: "https://app.hypeagendamento.com",
-    },
-    // {
-    //     id: 3,
-    //     title: "Venda de ingressos",
-    //     name: "Moderna pass",
-    //     description:
-    //         "Um projeto no qual participei contratado por como freelancer onde fiz algumas implementações e refatorações, como implementação de envio de email de boas vindas, redefinição de senha, disparo de emails para lembrete próximo ao dia de inicio do evento com cron e aws sqs, refatoração para migrar do mailchimp para aws ses, refatoração na infraestrutura do banco para implementar logica de lote de casadinha de ingressos e a visualização da área de tickets do usuário.",
-    //     image: "/imgs/modernaPass.png",
-    //     siteLink: "https://modernapass.com.br/",
-    // },
-    {
-        id: 4,
         title: "Conversor de texto",
         name: "Text Alchemy",
         description:
@@ -106,7 +79,7 @@ const projects = ref<Project[]>([
         githubLink: "https://github.com/Guilherme-px/vue-text-convert",
     },
     {
-        id: 5,
+        id: 3,
         title: "Pagina para cafeteria",
         name: "Cafeteria",
         description:
@@ -116,7 +89,7 @@ const projects = ref<Project[]>([
         githubLink: "https://github.com/Guilherme-px/Landing-page-vue-vuetify",
     },
     {
-        id: 6,
+        id: 4,
         title: "Pagina para hamburgueria",
         name: "Burguer page",
         description:
@@ -124,6 +97,22 @@ const projects = ref<Project[]>([
         image: "/imgs/burguerMenu.png",
         siteLink: "https://guilherme-px.github.io/burg/",
         githubLink: "https://github.com/Guilherme-px/burguer-page",
+    },
+    {
+        id: 5,
+        title: "Hype - Sistema de agendamentos",
+        name: "Administrativo hype agendamentos",
+        description:
+            "Este é um projeto para gerenciar agendamentos e a parte administrativa de estabelecimentos do ramo de estética. O projeto foi desenvolvido em React e está rodando na AWS Amplify. Nele, os usuários podem realizar o cadastro de profissionais e clientes, fazer a gestão da agenda de horários, cadastrar serviços e gerenciar o fluxo de caixa.",
+        image: "/imgs/hypeLayout.png",
+    },
+    {
+        id: 6,
+        title: "Hype - Marketplace ",
+        name: "Marketplace hype agendamentos",
+        description:
+            "Este é o marketplace que desenvolvi em Nuxt 3 para que os clientes possam fazer agendamentos com os salões da sua região. O sistema utiliza a API do Google Maps para buscar as informações de endereço e filtrar os estabelecimentos próximos à localização do usuário, além de permitir que os usuários realizem o pagamento online dos agendamentos utilizando o Stripe.",
+        image: "/imgs/b2c.png",
     },
 ]);
 
@@ -210,23 +199,23 @@ h4 {
 }
 
 .swiper-slide:nth-child(2n) {
-    background-image: url("/imgs/hypeDashboard.png");
-}
-
-.swiper-slide:nth-child(3n) {
-    background-image: url("/imgs/b2c-home.png");
-}
-
-.swiper-slide:nth-child(4n) {
     background-image: url("/imgs/textAlchemy.png");
 }
 
-.swiper-slide:nth-child(5n) {
+.swiper-slide:nth-child(3n) {
     background-image: url("/imgs/coffeePage.png");
 }
 
-.swiper-slide:nth-child(6n) {
+.swiper-slide:nth-child(4n) {
     background-image: url("/imgs/burguerPage.png");
+}
+
+.swiper-slide:nth-child(5n) {
+    background-image: url("/imgs/hypeDashboard.png");
+}
+
+.swiper-slide:nth-child(6n) {
+    background-image: url("/imgs/b2c-home.png");
 }
 
 .card {
@@ -272,23 +261,23 @@ h4 {
     }
 
     .swiper-slide:nth-child(2n) {
-        background-image: url("/imgs/hype-mobile.png");
-    }
-
-    .swiper-slide:nth-child(3n) {
-        background-image: url("/imgs/moderna-mobile.png");
-    }
-
-    .swiper-slide:nth-child(4n) {
         background-image: url("/imgs/convert-mobile.png");
     }
 
-    .swiper-slide:nth-child(5n) {
+    .swiper-slide:nth-child(3n) {
         background-image: url("/imgs/coffee-mobile.png");
     }
 
-    .swiper-slide:nth-child(6n) {
+    .swiper-slide:nth-child(4n) {
         background-image: url("/imgs/burguer-mobile.jpg");
+    }
+
+    .swiper-slide:nth-child(5n) {
+        background-image: url("/imgs/hype-mobile.png");
+    }
+
+    .swiper-slide:nth-child(6n) {
+        background-image: url("/imgs/moderna-mobile.png");
     }
 }
 </style>
